@@ -36,7 +36,7 @@ class Login extends Component{
             onChange={this.handleChange}
           />
           <br /><br></br>
-          <input class='btn btn-outline-dark btn-lg' variant='outline-dark' type="submit" value="Submit" ></input>
+          <input type="submit" value="Submit" ></input>
         </form>
       </div>
 

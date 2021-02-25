@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from '../components/Login.js'
 import {Route, withRouter} from 'react-router-dom'
+import IntervalContainer from './IntervalContainer'
 
 
 const API = "http://localhost:3000";
@@ -22,12 +23,11 @@ class MainContainer extends React.Component {
           .then((resp) => resp.json())
           .then((data) => {
             if (data.username) {
-              const { username, id } = data;
+              const { username, id, points } = data;
               this.setState({
                 user: {
                   username,
                   id,
-                  bio: ''
                 },
               });
             }
@@ -46,7 +46,7 @@ class MainContainer extends React.Component {
           });
           localStorage.setItem("token", token);
           localStorage.setItem("id", this.state.user.id)
-          this.props.history.push("/variety")
+          this.props.history.push("/interval")
         } else if (data.error) {
           this.setState({
             error: data.error
@@ -89,7 +89,7 @@ class MainContainer extends React.Component {
       handleLogout = () => {
         localStorage.clear();
         this.setState({ user: {} });
-        // this.props.history.push("/")
+        this.props.history.push("/interval")
         console.log("successful logout")
       };
 
@@ -101,6 +101,8 @@ class MainContainer extends React.Component {
             <div>
                 <Route path="/login" component={this.renderLoginPage} />
                 <Route path="/signup" render={this.renderSignUpPage} />
+                <Route path= "/interval" render={() => {
+                  return <IntervalContainer user={this.state.user.username} />}} /> 
             </div>
         )
     } 
