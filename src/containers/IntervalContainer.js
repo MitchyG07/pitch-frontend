@@ -1,45 +1,20 @@
-import React, {useState} from 'react'
+import React, { Component } from 'react'
+import Interval_Game from '../components/Interval'
 
 
-const IntervalContainer = (props) => {
-    
-    const [currentInterval, setCurrentInterval] = useState(0)
+class IntervalContainer extends Component {
 
-    const intervals = [
-        {intervalText: "Octave", 
-            intervalOptions: [
-                { answerText: 'Major 3rd', isCorrect: false },
-                { answerText: 'Perfect 5th', isCorrect: false },
-                { answerText: 'Octave', isCorrect: true }      
-            ]
-        },
-        {intervalText: "Major 3rd",
-            intervalOptions: [
-                { answerText: 'Major 3rd', isCorrect: true },
-                { answerText: 'Perfect 5th', isCorrect: false },
-                { answerText: 'Octave', isCorrect: false }
-            ]
-        },
-        {intervalText: "Perfect 5th",
-        intervalOptions: [
-                { answerText: 'Major 3rd', isCorrect: false },
-                { answerText: 'Perfect 5th', isCorrect: true },
-                { answerText: 'Octave', isCorrect: false }
-            ]
-        }
-    ]
 
+    render() {
     return(
      <div className='app' >
-
-        <div> Welcome to the Interval Game {props.user} </div>
+        <div> Welcome to the Interval Game {this.props.user} </div>
             <div className='question-section'>
-                {intervals[0].intervalOptions.map((intervalOption) => 
-                    <button>{intervalOption.answerText}</button>)}
+                <Interval_Game /> 
             </div>  
-        </div> 
+        </div>        
 
-    )
+    )} 
 }
 
 export default IntervalContainer
