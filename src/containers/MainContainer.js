@@ -2,6 +2,7 @@ import React from 'react'
 import Login from '../components/Login.js'
 import {Route, withRouter} from 'react-router-dom'
 import IntervalContainer from './IntervalContainer'
+import Navi from '../components/Navi'
 
 
 const API = "http://localhost:3000";
@@ -97,11 +98,15 @@ class MainContainer extends React.Component {
     renderSignUpPage = () => <Login handleLoginOrSignup={this.handleSignup} />;
 
     render() {
+        const {user, error} = this.state
         return (
             <div>
-                <Route path="/login" component={this.renderLoginPage} />
-                <Route path="/signup" render={this.renderSignUpPage} />
-                <Route path= "/interval" render={() => {
+               <Navi user={user} handleLogout={this.handleLogout} />
+                {!!error && <h1>{error}</h1>}
+
+              <Route path="/login" component={this.renderLoginPage} />
+              <Route path="/signup" render={this.renderSignUpPage} />
+              <Route path= "/interval" render={() => {
                   return <IntervalContainer user={this.state.user.username} />}} /> 
             </div>
         )

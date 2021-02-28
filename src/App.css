@@ -28,11 +28,115 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.color-nav{
+  background: #342e2e;
+  font-family: 'Pacifico';
+  color:whitesmoke;
+  font-size: 25px
+}
+
+.navi-container {
+  display:flex;
+  padding:12px;
+}
+
+.navi-login{
+  display: flex; 
+  justify-content: flex-end;
+}
+
+.navi-header{
+  display:flex;
+  flex: 3;
+  justify-Content: flex-start;
+}
+
+.soundwave {
+  width: 600px;
+  height: 400px;
+  margin: 50px auto;
+}
+.bar {
+  display: inline-block;
+  background-color: #342e2e;
+  width: 20px;
+  height: 20px;
+  animation: wave 2s linear infinite;
+}
+.a1 {
+  animation-delay: 0s;
+}
+.a2 {
+  animation-delay: .2s;
+}
+.a3 {
+  animation-delay: .4s;
+}
+.a4 {
+  animation-delay: .6s;
+}
+.a5 {
+  animation-delay: .8s;
+}
+.a6 {
+  animation-delay: 1s;
+}
+.a7 {
+  animation-delay: 1.2s;
+}
+.a8 {
+  animation-delay: 1.4s;
+}
+.a9 {
+  animation-delay: 1.6s;
+}
+.a9 {
+  animation-delay: 1.6s;
+}
+.a10 {
+  animation-delay: 1.8s;
+}
+.a11 {
+  animation-delay: 2s;
+}
+.a12 {
+  animation-delay: 2.2s;
+}
+.a13 {
+  animation-delay: 2.4s;
+}
+.a14 {
+  animation-delay: 2.6s;
+}
+.a15 {
+  animation-delay: 2.8s;
+}
+.a16 {
+  animation-delay: 3s;
+}
+.a17 {
+  animation-delay: 3.2s;
+}
+.a18 {
+  animation-delay: 3.4s;
+}
+.a19 {
+  animation-delay: 3.6s;
+}
+.a20 {
+  animation-delay: 4s;
+}
+.a21 {
+  animation-delay: 4.2s;
+}
+
+ 
+@keyframes wave {
+  0%, 50%{
+    transform: scaleY(1);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: scaleY(4);
+    background-color: whitesmoke;
   }
 }
