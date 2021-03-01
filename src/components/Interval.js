@@ -78,29 +78,32 @@ function Interval_Game() {
         }
         
     const handleAnswerClick = (isCorrect) => {
+        if (attempts < 10) {
             if (isCorrect) {
                 setScore(score + 1);
                 setAnswer(false)
+                setAttempts(attempts + 1)
+            } else {
+                setAttempts(attempts + 1)
+                setAnswer(false)
+            } 
+            } else {
+                postScore()
             }
-
-                if (attempts < 10) {
-                    setAttempts(attempts + 1)
-                } 
-                // else {
-                //     postScore()
-                // }
+        }
+    
+    const postScore = () => {
+        const token = localStorage.token;
+        let config = { method: 'POST',
+            headers: {'Content-Type': 'application/json',
+                      Authorization: `Bearer ${token}`},
+            body: JSON.stringify({
+                points: {score}
+            })}
+        fetch('http://localhost:3000/intervals', config)
+            .then(resp => resp.json())
+            .then(data => console.log(data))
     }
-
-    // function postScore () {
-    //     const token = localStorage.token;
-    //     let config = { method: 'POST',
-    //         headers: {'Content-Type': 'application/json',
-    //                   Authorization: `Bearer ${token}`},
-    //         body: JSON.stringify({
-    //             content: e.target.children[0].value,
-    //             user_id: this.props.user.id, 
-    //             wine_id: this.props.wine.id })} 
-    // }
 
     return (
         <div>
@@ -124,10 +127,12 @@ function Interval_Game() {
             </div>
             <div className='answer-section'>
                 {intervals[note].answerOptions.map((answerOption) => (
-                    <button onClick={() => handleAnswerClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                    answer === false ? <button>{answerOption.answerText}</button>
+                    : <button onClick={() => handleAnswerClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
                 ))}
             </div>
             <div className="scoreboard">Your Score: {score} / 10 </div>
+            <div className="remaining-attempts">Remaining: {10 - attempts}</div>
         </div>
     )
 }
