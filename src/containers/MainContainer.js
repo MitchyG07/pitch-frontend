@@ -24,7 +24,7 @@ class MainContainer extends React.Component {
           .then((resp) => resp.json())
           .then((data) => {
             if (data.username) {
-              const { username, id, points } = data;
+              const { username, id } = data;
               this.setState({
                 user: {
                   username,
@@ -107,7 +107,7 @@ class MainContainer extends React.Component {
               <Route path="/login" component={this.renderLoginPage} />
               <Route path="/signup" render={this.renderSignUpPage} />
               <Route path= "/interval" render={() => {
-                  return <IntervalContainer user={this.state.user.username} />}} /> 
+                  return <IntervalContainer user={this.state.user} />}} /> 
             </div>
         )
     } 

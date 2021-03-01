@@ -1,15 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Tone from 'tone'
 import { Note, Scale } from "@tonaljs/tonal";
 import { BsFillDashCircleFill } from 'react-icons/bs';
 
-function Interval_Game() {
+function Interval_Game(props) {
     
     const [tonic, setTonic] = useState(() => [Scale.get('c3 major').notes])
     const [note, setNote] = useState(0)
     const [score, setScore] = useState(0)
     const [answer, setAnswer] = useState(false)
     const [attempts, setAttempts] = useState(0)
+    const [game, setGame] = useState({})
+    const [user, setUser] = useState({})
+
+
+    useEffect(() => {
+        const token = localStorage.token;
+        let  configObj = {method: 'GET',  
+        headers: {Authorization:  `Bearer ${token}`}} 
+        fetch(`http://localhost:3000/users/${localStorage.id}`, configObj) 
+        .then(resp  => resp.json())
+        .then(data=> setUser(data))  
+    }, [])
 
     const intervals = [
         {
@@ -98,11 +110,31 @@ function Interval_Game() {
             headers: {'Content-Type': 'application/json',
                       Authorization: `Bearer ${token}`},
             body: JSON.stringify({
-                points: {score}
+                points: score
             })}
         fetch('http://localhost:3000/intervals', config)
             .then(resp => resp.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setGame(data)
+                postExperience(data)
+            })
+    }
+
+    const postExperience = (data) => {
+        const token = localStorage.token;
+        let config = { method: 'POST',
+            headers: {'Content-Type': 'application/json',
+                      Authorization: `Bearer ${token}`},
+            body: JSON.stringify({
+                user_id: localStorage.id,
+                interval_id: data.id
+            })}
+        fetch('http://localhost:3000/experiences', config)
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     return (

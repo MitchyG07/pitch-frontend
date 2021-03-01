@@ -8,9 +8,8 @@ class IntervalContainer extends Component {
     render() {
     return(
      <div className='app' >
-        <div> Welcome to the Interval Game {this.props.user} </div>
             <div className='question-section'>
-                <Interval_Game /> 
+                <Interval_Game user={this.props.user} /> 
             </div>  
         </div>        
 
