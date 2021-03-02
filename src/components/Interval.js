@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as Tone from 'tone'
 import { Note, Scale } from "@tonaljs/tonal";
 import { BsFillDashCircleFill } from 'react-icons/bs';
+import Results from '../components/Results'
 
 function Interval_Game(props) {
     
@@ -11,17 +12,6 @@ function Interval_Game(props) {
     const [answer, setAnswer] = useState(false)
     const [attempts, setAttempts] = useState(0)
     const [game, setGame] = useState({})
-    const [user, setUser] = useState({})
-
-
-    useEffect(() => {
-        const token = localStorage.token;
-        let  configObj = {method: 'GET',  
-        headers: {Authorization:  `Bearer ${token}`}} 
-        fetch(`http://localhost:3000/users/${localStorage.id}`, configObj) 
-        .then(resp  => resp.json())
-        .then(data=> setUser(data))  
-    }, [])
 
     const intervals = [
         {
@@ -61,6 +51,7 @@ function Interval_Game(props) {
             ],
         },   
     ]
+
 
 
     function scale_select(e) {
@@ -165,6 +156,8 @@ function Interval_Game(props) {
             </div>
             <div className="scoreboard">Your Score: {score} / 10 </div>
             <div className="remaining-attempts">Remaining: {10 - attempts}</div>
+            <button>
+            </button> 
         </div>
     )
 }

@@ -107,7 +107,7 @@ class MainContainer extends React.Component {
               <Route path="/login" component={this.renderLoginPage} />
               <Route path="/signup" render={this.renderSignUpPage} />
               <Route path= "/interval" render={() => {
-                  return <IntervalContainer user={this.state.user} />}} /> 
+                  return <IntervalContainer />}} /> 
             </div>
         )
     } 
