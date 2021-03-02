@@ -32,18 +32,40 @@ class IntervalContainer extends Component {
         })
     }
 
+    handleEndGame = (score) => {
+        let end = !this.state.endGame
+        this.setState({
+            endGame: end,
+            games: [...this.state.games, {points: score}]
+        })
+    }
+
+    handleRestart = () => {
+        let startOn = false 
+        let end = false
+        this.setState({
+            gameOn: startOn,
+            endGame: false
+        })
+    }
+
     render() {
     const { gameOn, endGame } = this.state
+    console.log(this.state)
     return(
      <div className='app' >
          
          <div className="startGame">
              {gameOn === false ? <StartInterval start={this.handleStart} /> 
-                : <Interval_Game user={this.props.user} />}
+                : <Interval_Game user={this.props.user} end={this.handleEndGame}/>}
         </div>
 
+
         <div>
-            <Results results={this.state.games}/>
+            { endGame ? 
+            <Results results={this.state.games} start={this.handleRestart} />
+            : <div></div>
+            }
         </div>
 
     </div>         

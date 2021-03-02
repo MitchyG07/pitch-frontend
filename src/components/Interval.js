@@ -12,6 +12,7 @@ function Interval_Game(props) {
     const [answer, setAnswer] = useState(false)
     const [attempts, setAttempts] = useState(0)
     const [game, setGame] = useState({})
+    const [endGame, setEndGame] = useState(false)
 
     const intervals = [
         {
@@ -92,6 +93,7 @@ function Interval_Game(props) {
             } 
             } else {
                 postScore()
+                setEndGame(true)
             }
         }
     
@@ -156,8 +158,12 @@ function Interval_Game(props) {
             </div>
             <div className="scoreboard">Your Score: {score} / 10 </div>
             <div className="remaining-attempts">Remaining: {10 - attempts}</div>
-            <button>
-            </button> 
+            
+            {
+                endGame 
+                ? <button onClick={() => props.end(score)} className='endGame'>View Results!</button>
+                : <div></div>
+            }
         </div>
     )
 }

@@ -7,36 +7,27 @@ class Results extends Component {
         games: [] 
     }
 
-    getGames = () => {
-        this.props.results.map(game => {
-            this.setState({
-                games: this.state.games.push(game.points)
-            })
-        })
-    }
-
-    
-
     render() {
-        console.log(this.state.games)
+        let data = this.props.results.map(game => game.points)
         return (
         <div className='leaderboard'>
           <ReactEcharts
             option={{
               xAxis: {
                 type: 'category',
-                data: ['Mon', 'tues', 'three', 'four']
+                data: Array.from({length: data.length}, (_, i) => i + 1)
               },
               yAxis: {
                 type: 'value',
               },
               series: [{ 
-                data: this.state.games,
+                data: data,
                 type: 'line'
               }]
             }}
           />
-        </div>
+        <button onClick={() => this.props.start()}>Play Again!</button> 
+        </div> 
         );
       }
     }
