@@ -1,15 +1,26 @@
 import React, {Component} from 'react'
 import './App.css';
 import MainContainer from './containers/MainContainer'
+import Sax from './video/sax.mp4'
 
 class App extends Component {
-
-  
-  
 
   render() {
   return (
     <div className="App">
+      <video autoPlay loop muted
+      style={{
+        position: "absolute",
+        width: "100%",
+        top: "50%",
+        left: "50%",
+        height: "100%",
+        objectFit: "cover",
+        transform: "translate(-50%, -50%)",
+        zIndex: "-1"
+      }}>
+        <source src={Sax} type="video/mp4"/> 
+      </video>
       <div>
       <MainContainer /> 
       <div className="soundwave">

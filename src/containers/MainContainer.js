@@ -90,7 +90,7 @@ class MainContainer extends React.Component {
       handleLogout = () => {
         localStorage.clear();
         this.setState({ user: {} });
-        this.props.history.push("/interval")
+        this.props.history.push("/login")
         console.log("successful logout")
       };
 
@@ -99,9 +99,10 @@ class MainContainer extends React.Component {
 
     render() {
         const {user, error} = this.state
+        console.log(this.state.user)
         return (
             <div>
-               <Navi user={user} handleLogout={this.handleLogout} />
+               <Navi user={user} handleLogout={this.handleLogout}/>
                 {!!error && <h1>{error}</h1>}
 
               <Route path="/login" component={this.renderLoginPage} />

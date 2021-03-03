@@ -143,27 +143,26 @@ function Interval_Game(props) {
                 <option value="b3 major">B Major</option>
             </select> 
             </div > 
-            <div className='play-interval-question'>
-                <h4>Press to Hear Note</h4>
+            <div className='game-container'>
                 { answer 
-                ? <div> What note did you hear bitch </div>
-                : <button onClick={playNote}>Play the music bitch</button>
+                ? <div> What is the Interval? </div>
+                : <button className='question-text' onClick={playNote}>Play Interval</button>
                 }
-            </div>
             <div className='answer-section'>
                 {intervals[note].answerOptions.map((answerOption) => (
-                    answer === false ? <button>{answerOption.answerText}</button>
-                    : <button onClick={() => handleAnswerClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                    answer === false ? <button className='answerButton'>{answerOption.answerText}</button>
+                    : <button className='answerButton' onClick={() => handleAnswerClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
                 ))}
             </div>
-            <div className="scoreboard">Your Score: {score} / 10 </div>
-            <div className="remaining-attempts">Remaining: {10 - attempts}</div>
+            {/* <div className="scoreboard">Your Score: {score} / 10 </div>
+            <div className="remaining-attempts">Remaining: {10 - attempts}</div> */}
             
             {
                 endGame 
                 ? <button onClick={() => props.end(score)} className='endGame'>View Results!</button>
                 : <div></div>
             }
+            </div>
         </div>
     )
 }

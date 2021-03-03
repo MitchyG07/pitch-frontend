@@ -1,32 +1,27 @@
-import React from "react";
+import React from 'react'
 import { NavLink } from "react-router-dom";
-import {Navbar, Nav, Button} from "react-bootstrap"
-import { BsMusicNoteList } from 'react-icons/bs'
+import { Navbar, Nav, Button } from "react-bootstrap";
+import { BsMusicNoteList } from 'react-icons/bs';
 
 
-const Navi = ({ user, handleLogout }) => {
+const Navi = (props) => {
 
     return (
       <Navbar className='color-nav rounded-bottom' >
         <div className='navi-container'>
         <div className='navi-header'>
         <BsMusicNoteList />
-        <Navbar.Brand>Pitch Please</Navbar.Brand>
+        <Navbar.Brand id="title"> Pitch Please</Navbar.Brand>
         </div>
-          {!user.id ? ( 
-              <div className="navi-login">
-                <Nav>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/signup">   Sign up</Nav.Link>
-                </Nav>
-              </div> 
+          {!localStorage.id ? ( 
+              <Nav className='mr-auto'>
+                    <Nav.Link id="login" href='/login'>Login</Nav.Link>
+                    <Nav.Link id="signup" href='/signup'>Sign Up</Nav.Link>               
+              </Nav> 
           ) : (
-               <Nav> 
-                <div className="navi-login">
-                    <Nav.Link href="/interval">Play the Interval Game</Nav.Link>
-                    <Nav.Link href="/user"> Profile</Nav.Link> 
-                    <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
-                </div>
+               <Nav className='mr-auto'>
+                    <Nav.Link id='intGame' href="/interval">Interval Game</Nav.Link>
+                    <Button id='logout' variant="outline-light" onClick={props.handleLogout}>Logout</Button>
               </Nav> 
           )}
             </div>
