@@ -143,6 +143,7 @@ function Interval_Game(props) {
                 <option value="b3 major">B Major</option>
             </select> 
             </div > 
+            <div className='center-game'>
             <div className='game-container'>
                 { answer 
                 ? <div> What is the Interval? </div>
@@ -162,6 +163,7 @@ function Interval_Game(props) {
                 ? <button onClick={() => props.end(score)} className='endGame'>View Results!</button>
                 : <div></div>
             }
+            </div>
             </div>
         </div>
     )
