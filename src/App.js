@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './App.css';
+import './App.scss';
 import MainContainer from './containers/MainContainer'
 import Sax from './video/sax.mp4'
 
@@ -23,7 +23,7 @@ class App extends Component {
       </video>
       <div>
       <MainContainer /> 
-      <div className="soundwave">
+      {/* <div className="soundwave">
         <span className="a1 bar"></span>
         <span className="a2 bar"></span>
         <span className="a3 bar"></span>
@@ -45,7 +45,7 @@ class App extends Component {
         <span className="a19 bar"></span>
         <span className="a20 bar"></span>
         <span className="a21 bar"></span>
-      </div>
+      </div> */}
       </div>
     </div>
   );

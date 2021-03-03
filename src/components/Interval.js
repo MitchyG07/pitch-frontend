@@ -144,9 +144,10 @@ function Interval_Game(props) {
             </select> 
             </div > 
             <div className='center-game'>
+            <div className='center-quiz'>
             <div className='game-container'>
                 { answer 
-                ? <div> What is the Interval? </div>
+                ? <div className='question-flip'> What is the Interval? </div>
                 : <button className='question-text' onClick={playNote}>Play Interval</button>
                 }
             <div className='answer-section'>
@@ -154,6 +155,7 @@ function Interval_Game(props) {
                     answer === false ? <button className='answerButton'>{answerOption.answerText}</button>
                     : <button className='answerButton' onClick={() => handleAnswerClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
                 ))}
+            </div>
             </div>
             {/* <div className="scoreboard">Your Score: {score} / 10 </div>
             <div className="remaining-attempts">Remaining: {10 - attempts}</div> */}
@@ -163,7 +165,36 @@ function Interval_Game(props) {
                 ? <button onClick={() => props.end(score)} className='endGame'>View Results!</button>
                 : <div></div>
             }
+
             </div>
+
+            { !endGame ?
+            <div className="soundwave">
+                <span className="a1 bar"></span>
+                <span className="a2 bar"></span>
+                <span className="a3 bar"></span>
+                <span className="a4 bar"></span>
+                <span className="a5 bar"></span>
+                <span className="a6 bar"></span>
+                <span className="a7 bar"></span>
+                <span className="a8 bar"></span>
+                <span className="a9 bar"></span>
+                <span className="a10 bar"></span>
+                <span className="a11 bar"></span>
+                <span className="a12 bar"></span>
+                <span className="a13 bar"></span>
+                <span className="a14 bar"></span>
+                <span className="a15 bar"></span>
+                <span className="a16 bar"></span>
+                <span className="a17 bar"></span>
+                <span className="a18 bar"></span>
+                <span className="a19 bar"></span>
+                <span className="a20 bar"></span>
+                <span className="a21 bar"></span>
+        </div>
+        : <div></div> 
+        } 
+
             </div>
         </div>
     )

@@ -1,3 +1,10 @@
+$color_grey: #ffffff;
+$color_green: #5ee70f;
+$color_dark: #1A1A1A;
+$color_light: #FAFAFA;
+$color_background: #2D3235;
+$default_timer: 987ms;
+
 .App {
   text-align: center;
 }
@@ -18,10 +25,109 @@
   padding: 3px;
 }
 
-.center-game{
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
   display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding-right: 55px;
+  
+  &:hover {
+    & .button__border-circle { 
+      transform: translateX(60px);
+    }
+    
+    & .button__mask-circle {
+      clip-path: circle(25px at 85px);
+    }
+  }
+}
+
+.button__text {
+  z-index: 1;
+  font-size: 17px;
+  margin-right: -18px;
+  color: whitesmoke;
+  letter-spacing: 0.05em;
+}
+
+.button__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.button__arrow {
+  left: 35px;
+  height: 5px;
+  width: 50px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background-color: $color_green;
+  
+  &:after {
+    content: '';
+    width: 0; 
+    height: 0; 
+    top: -5px;
+    right: -7px;
+    position: absolute;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid $color_green;
+  }
+}
+
+.button__border-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $color_grey;
+  transition: transform $default_timer;
+}
+
+.button__mask-circle {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 15px;
+  clip-path: circle(25px);
+  transition: clip-path $default_timer;
+}
+
+.button__small-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateX(60px);
+  background-color: $color_green;
+}
+
+.start-position {
+  display: flex; 
+  justify-content: center; 
+  margin-top: 50px;
+}
+
+.center-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.center-quiz{
+  display:flex;
+  justify-content:center;
 }
 
 .game-container {
@@ -49,6 +155,19 @@
   align-items: center;
   border: 5px solid whitesmoke;
   cursor: pointer;
+}
+
+.question-flip {
+    margin-bottom: 12px;
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #282c34;
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .question-section {
@@ -155,7 +274,7 @@ button svg {
 .soundwave {
   width: 600px;
   height: 400px;
-  margin: 50px auto;
+  margin: 50px auto 
 }
 .bar {
   display: inline-block;
