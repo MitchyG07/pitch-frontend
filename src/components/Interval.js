@@ -6,7 +6,7 @@ import Results from '../components/Results'
 
 function Interval_Game(props) {
     
-    const [tonic, setTonic] = useState(() => [Scale.get('c3 major').notes])
+    const [tonic, setTonic] = useState([])
     const [note, setNote] = useState(0)
     const [score, setScore] = useState(0)
     const [answer, setAnswer] = useState(false)
@@ -53,7 +53,11 @@ function Interval_Game(props) {
         },   
     ]
 
-
+    useEffect(() => {
+        setTonic(arr => {
+            return [...Scale.get('c3 major').notes]
+        })
+    })
 
     function scale_select(e) {
         setTonic(arr  => {
