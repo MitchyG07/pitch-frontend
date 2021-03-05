@@ -53,16 +53,16 @@ function Interval_Game(props) {
         },   
     ]
 
-    useEffect(() => {
-        setTonic(arr => {
-            return [...Scale.get('c3 major').notes]
-        })
-    })
+    // useEffect(() => {
+    //     setTonic(arr => {
+    //         return [...Scale.get('c3 major').notes]
+    //     })
+    // })
 
     function scale_select(e) {
         setTonic(arr  => {
             return [...Scale.get(e.target.value).notes]})
-    }
+        }
     
     function playNote() {
         let note = Math.floor(Math.random() * 4)
@@ -116,7 +116,7 @@ function Interval_Game(props) {
                 setGame(data)
                 postExperience(data)
             })
-    }
+        }
 
     const postExperience = (data) => {
         const token = localStorage.token;
@@ -132,12 +132,13 @@ function Interval_Game(props) {
             .then(data => {
                 console.log(data)
             })
-    }
+        }
 
     return (
         <div>
             <div>
             <select onChange={(e) => scale_select(e)}>
+                <option value="choose your key">Choose Key</option>
                 <option value="c3 major">C Major</option>
                 <option value="d3 major">D Major</option>
                 <option value="e3 major">E Major</option>

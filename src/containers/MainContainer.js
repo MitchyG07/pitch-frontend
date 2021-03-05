@@ -3,7 +3,7 @@ import Login from '../components/Login.js'
 import {Route, withRouter} from 'react-router-dom'
 import IntervalContainer from './IntervalContainer'
 import Navi from '../components/Navi'
-
+import ChordContainer from './ChordContainer'
 
 const API = "http://localhost:3000";
 
@@ -107,6 +107,9 @@ class MainContainer extends React.Component {
 
               <Route path="/login" component={this.renderLoginPage} />
               <Route path="/signup" render={this.renderSignUpPage} />
+              <Route path="/chord" render={() => {
+                return <ChordContainer /> 
+              }} /> 
               <Route path= "/interval" render={() => {
                   return <IntervalContainer />}} /> 
             </div>
