@@ -4,6 +4,7 @@ import {Route, withRouter} from 'react-router-dom'
 import IntervalContainer from './IntervalContainer'
 import Navi from '../components/Navi'
 import ChordContainer from './ChordContainer'
+import PerfectContainer from './PerfectContainer'
 
 
 const API = "http://localhost:3000";
@@ -113,6 +114,9 @@ class MainContainer extends React.Component {
               }} /> 
               <Route path= "/interval" render={() => {
                   return <IntervalContainer />}} /> 
+              <Route path= "/perfect_pitch" render={() => {
+                return <PerfectContainer /> 
+              }}/>
             </div>
         )
     } 
