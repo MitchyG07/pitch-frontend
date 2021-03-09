@@ -26,8 +26,9 @@ const Navi = (props) => {
                     <div class="dropdown">
                       <button class="dropbtn">Train Your Ear</button>
                       <div class="dropdown-content">
-                        <a href='/interval'>Interval Game</a>
-                        <a href='/chord'>Chord Game</a>
+                        <a href='/interval'>Intervals</a>
+                        <a href='/chord'>Chords</a>
+                        <a href='/perfect_pitch'>Perfect Pitch</a>
                       </div>
                     </div> 
                  

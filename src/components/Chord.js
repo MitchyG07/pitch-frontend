@@ -57,7 +57,7 @@ function ChordGame(props) {
 
     function answerChord(e) {
         setShowChord(true)
-        if (attempts < 9) {
+        if (attempts < 10) {
             if (e.target.value === tonic && showChord != true) {
                 setScore(score + 1);
                 setAnswer(false)
@@ -119,7 +119,6 @@ function ChordGame(props) {
         <div>
         <div>
             <select onChange={(e) => voicingSelect(e)}>
-                <option value="choose your key">Choose Voicing</option>
                 <option value="major">Major</option>
                 <option value="minor">Minor</option>
             </select> 

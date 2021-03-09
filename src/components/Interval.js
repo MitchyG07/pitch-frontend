@@ -13,6 +13,7 @@ function Interval_Game(props) {
     const [attempts, setAttempts] = useState(0)
     const [game, setGame] = useState({})
     const [endGame, setEndGame] = useState(false)
+    const [key, setKey] = useState(false)
 
     const intervals = [
         {
@@ -60,11 +61,13 @@ function Interval_Game(props) {
     // })
 
     function scale_select(e) {
+        setKey(true)
         setTonic(arr  => {
             return [...Scale.get(e.target.value).notes]})
         }
     
     function playNote() {
+        if (key) {
         let note = Math.floor(Math.random() * 4)
         setNote(note)
         setAnswer(true)
@@ -80,9 +83,12 @@ function Interval_Game(props) {
             }).toDestination();
             const now = Tone.now()
             Tone.loaded().then(() => {
-              sampler.triggerAttackRelease(`${intervals[note].notes[0]}`, '4n', now);
-              sampler.triggerAttackRelease(`${intervals[note].notes[1]}`, '4n', now + 1);
-            })
+              sampler.triggerAttackRelease(`${intervals[note].notes[0]}`, '2n', now);
+              sampler.triggerAttackRelease(`${intervals[note].notes[1]}`, '2n', now + 2);
+            })}
+            else {
+                alert('Select a key to start the game!')
+            }
         }
         
     const handleAnswerClick = (isCorrect) => {
@@ -151,7 +157,7 @@ function Interval_Game(props) {
             <div className='center-game'>
             <div className='center-quiz'>
             <div className='game-container'>
-                { answer 
+                { answer
                 ? <div className='question-flip'> What is the Interval? </div>
                 : <button className='question-text' onClick={playNote}>Play Interval</button>
                 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PerfectGame from '../components/Perfect'
+import PerfectGame from '../components/PerfectGame'
 import StartPerfect from '../components/StartPerfect'
 import PerfectResult from '../components/PerfectResult.js'
 
@@ -20,7 +20,7 @@ class PerfectContainer extends Component {
             .then(resp  => resp.json())
             .then(data => this.setState({
                 user: data, 
-                games: data.intervals
+                games: data.perfect_games
             }))
     }
 
@@ -62,13 +62,13 @@ class PerfectContainer extends Component {
 
         <div>
             { endGame ? 
-            <PerfectResults results={this.state.games} start={this.handleRestart} />
+            <PerfectResult results={this.state.games} start={this.handleRestart} />
             : <div></div>
             }
-        </div>
+        </div> 
 
     </div>         
     )} 
 }
 
-export default IntervalContainer
+export default PerfectContainer
