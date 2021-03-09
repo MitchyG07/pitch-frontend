@@ -26,7 +26,7 @@ class ChordResult extends Component {
               }]
             }}
           />
-        <button onClick={() => this.props.start()}>Play Again!</button> 
+        <button id="revealAnswer" onClick={() => this.props.start()}>Play Again!</button> 
         </div> 
         );
       }

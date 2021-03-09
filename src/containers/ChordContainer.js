@@ -20,7 +20,7 @@ class ChordContainer extends Component {
             .then(resp  => resp.json())
             .then(data => this.setState({
                 user: data, 
-                games: data.chords
+                games: data.chord_games
             }))
     }
 
@@ -50,7 +50,7 @@ class ChordContainer extends Component {
 
     render(){
     const { gameOn, endGame } = this.state
-
+        console.log(this.state)
         return(
             <div className='app' >
          

@@ -12,25 +12,30 @@ function ChordGame(props) {
     const [attempts, setAttempts] = useState(0)
     const [game, setGame] = useState({})
     const [endGame, setEndGame] = useState(false)
+    const [showChord, setShowChord] = useState(false)
+    const [showResult, setShowResult] = useState(false)
+    const [voicing, setVoicing] = useState('major')
     
     const chords = [
-        {'c3': 'C Major'},
-        {'d3': 'D Major'},
-        {'e3': 'E Major'},
-        {'f3': 'F Major'},
-        {'g3': 'G Major'},
-        {'a3': 'A Major'},
-        {'b3': 'B Major'},
+        {'c3': `C ${voicing}`},
+        {'d3': `D ${voicing}`},
+        {'e3': `E ${voicing}`},
+        {'f3': `F ${voicing}`},
+        {'g3': `G ${voicing}`},
+        {'a3': `A ${voicing}`},
+        {'b3': `B ${voicing}`},
     ]
 
-    const majors = ['C Major', 'D Major', 'E Major', 'F Major', 'G Major', 'A Major', 'B Major']
+    const majors = ['C major', 'D major', 'E major', 'F major', 'G major', 'A major', 'B major']
+    const minors = ['C minor', 'D minor', 'E minor', 'F minor', 'G minor', 'A minor', 'B minor']
 
     function playChord() {
         let note = Math.floor(Math.random() * 7)
         let current = Object.keys(chords[note])
-        let triad = [...Chord.getChord("major",current[0]).notes]
+        let triad = [...Chord.getChord(voicing,current[0]).notes]
         let currentChord = Object.values(chords[note])
         setAnswer(true)
+        setShowChord(false)
 
         const sampler = new Tone.Sampler({
               urls: {
@@ -45,15 +50,15 @@ function ChordGame(props) {
             Tone.loaded().then(() => {
               sampler.triggerAttackRelease(triad, 3);
             })
-        setTonic(currentChord[0])    
+        setTonic(currentChord[0])   
+        console.log(currentChord[0]) 
         setAnswer(true)    
     }
 
-    console.log(tonic)
-
     function answerChord(e) {
+        setShowChord(true)
         if (attempts < 9) {
-            if (e.target.value === tonic) {
+            if (e.target.value === tonic && showChord != true) {
                 setScore(score + 1);
                 setAnswer(false)
                 setAttempts(attempts + 1)
@@ -101,8 +106,24 @@ function ChordGame(props) {
             })
         }
 
+    function handleResults() {
+        setShowResult(true)
+        props.end(score)
+    }
+
+    function voicingSelect(e) {
+        setVoicing(e.target.value)
+    }
+
     return (
         <div>
+        <div>
+            <select onChange={(e) => voicingSelect(e)}>
+                <option value="choose your key">Choose Voicing</option>
+                <option value="major">Major</option>
+                <option value="minor">Minor</option>
+            </select> 
+        </div>
         
         <div className='center-game'>
         <div className='center-quiz'>
@@ -116,17 +137,68 @@ function ChordGame(props) {
         <div className='answer-section'>
 
             {
-            majors.map((chord) => (
+            voicing === 'minor' ?
+            minors.map((chord) => (
+                !answer 
+                ? <button value={chord} className='answerButton'>{chord}</button>
+                : <button className='answerButton' onClick={(e) => answerChord(e)} value={chord} className='answerButton'>{chord}</button>
+            ))
+            : majors.map((chord) => (
                 !answer 
                 ? <button value={chord} className='answerButton'>{chord}</button>
                 : <button className='answerButton' onClick={(e) => answerChord(e)} value={chord} className='answerButton'>{chord}</button>
             ))
             }
+    
 
         </div>
         </div>
         </div>
         </div>
+
+        {!endGame ?
+            <div className="soundwave">
+                <span className="a1 bar"></span>
+                <span className="a2 bar"></span>
+                <span className="a3 bar"></span>
+                <span className="a4 bar"></span>
+                <span className="a5 bar"></span>
+                <span className="a6 bar"></span>
+                <span className="a7 bar"></span>
+                <span className="a8 bar"></span>
+                <span className="a9 bar"></span>
+                <span className="a10 bar"></span>
+                <span className="a11 bar"></span>
+                <span className="a12 bar"></span>
+                <span className="a13 bar"></span>
+                <span className="a14 bar"></span>
+                <span className="a15 bar"></span>
+                <span className="a16 bar"></span>
+                <span className="a17 bar"></span>
+                <span className="a18 bar"></span>
+                <span className="a19 bar"></span>
+                <span className="a20 bar"></span>
+                <span className="a21 bar"></span>
+        </div>
+        : <div></div> 
+        } 
+
+        {
+        endGame ?
+            !showResult
+            ? <button onClick={() => {handleResults()}} id='revealAnswer'>View Results</button>
+            : <div></div>
+        :<div></div>
+        }
+
+        {
+            !endGame ?
+                showChord 
+                ? <button id="showAnswer">{tonic}</button>
+                : <div></div>
+            : <div></div>
+        }
+
         </div>
     )
 }

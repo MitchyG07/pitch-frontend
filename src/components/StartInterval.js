@@ -6,7 +6,7 @@ const StartInterval = (props) => {
         <div className='start-position'>
             {/* <button className='start-button' onClick={props.start} >Start Interval Game</button> */}
         <div onClick={props.start} class="button">
-        <div class="button__text">start game...</div>
+        <div class="button__text">start interval game...</div>
         
         <div class="button__wrapper">
             <div class="button__arrow"></div>

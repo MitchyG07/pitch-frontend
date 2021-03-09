@@ -5,6 +5,7 @@ import IntervalContainer from './IntervalContainer'
 import Navi from '../components/Navi'
 import ChordContainer from './ChordContainer'
 
+
 const API = "http://localhost:3000";
 
 class MainContainer extends React.Component {
@@ -47,7 +48,7 @@ class MainContainer extends React.Component {
           });
           localStorage.setItem("token", token);
           localStorage.setItem("id", this.state.user.id)
-          this.props.history.push("/interval")
+          this.props.history.push("/")
         } else if (data.error) {
           this.setState({
             error: data.error
@@ -104,7 +105,7 @@ class MainContainer extends React.Component {
             <div>
                <Navi user={user} handleLogout={this.handleLogout}/>
                 {!!error && <h1>{error}</h1>}
-
+          
               <Route path="/login" component={this.renderLoginPage} />
               <Route path="/signup" render={this.renderSignUpPage} />
               <Route path="/chord" render={() => {

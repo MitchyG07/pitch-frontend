@@ -164,12 +164,6 @@ function Interval_Game(props) {
             </div>
             {/* <div className="scoreboard">Your Score: {score} / 10 </div>
             <div className="remaining-attempts">Remaining: {10 - attempts}</div> */}
-            
-            {
-                endGame 
-                ? <button onClick={() => props.end(score)} className='endGame'>View Results!</button>
-                : <div></div>
-            }
 
             </div>
 
@@ -200,7 +194,15 @@ function Interval_Game(props) {
         : <div></div> 
         } 
 
+
+        
+
             </div>
+        {
+        endGame 
+        ? <button onClick={() => props.end(score)} id='revealAnswer'>View Results!</button>
+        : <div></div>
+        }
         </div>
     )
 }
