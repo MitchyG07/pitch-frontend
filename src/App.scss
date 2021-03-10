@@ -1,8 +1,8 @@
 $color_grey: #ffffff;
 $color_green: #5ee70f;
-$color_dark: #1A1A1A;
-$color_light: #FAFAFA;
-$color_background: #2D3235;
+$color_dark: #1a1a1a;
+$color_light: #fafafa;
+$color_background: #2d3235;
 $default_timer: 987ms;
 $breakpoint-alpha: 480px;
 
@@ -26,7 +26,9 @@ $breakpoint-alpha: 480px;
   padding: 3px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -37,12 +39,12 @@ $breakpoint-alpha: 480px;
   cursor: pointer;
   align-items: center;
   padding-right: 55px;
-  
+
   &:hover {
-    & .button__border-circle { 
+    & .button__border-circle {
       transform: translateX(60px);
     }
-    
+
     & .button__mask-circle {
       clip-path: circle(25px at 85px);
     }
@@ -71,11 +73,11 @@ $breakpoint-alpha: 480px;
   position: absolute;
   align-items: center;
   background-color: $color_green;
-  
+
   &:after {
-    content: '';
-    width: 0; 
-    height: 0; 
+    content: "";
+    width: 0;
+    height: 0;
     top: -5px;
     right: -7px;
     position: absolute;
@@ -114,8 +116,8 @@ $breakpoint-alpha: 480px;
 }
 
 .start-position {
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
 }
 
@@ -126,13 +128,13 @@ $breakpoint-alpha: 480px;
   margin-top: 60px;
 }
 
-.center-quiz{
-  display:flex;
-  justify-content:center;
+.center-quiz {
+  display: flex;
+  justify-content: center;
 }
 
 .game-container {
-  background-color: #342e2e;
+  background-color: #282c34;
   width: 450px;
   min-height: 200px;
   height: min-content;
@@ -148,7 +150,7 @@ $breakpoint-alpha: 480px;
   width: 100%;
   font-size: 16px;
   color: #ffffff;
-  background-color: #342e2e;
+  background-color: #282c34;
   border-radius: 15px;
   display: flex;
   padding: 5px;
@@ -159,16 +161,16 @@ $breakpoint-alpha: 480px;
 }
 
 .question-flip {
-    margin-bottom: 12px;
-    width: 100%;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #342e2e;
-    border-radius: 15px;
-    display: flex;
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
+  margin-bottom: 12px;
+  width: 100%;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #282c34;
+  border-radius: 15px;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .question-section {
@@ -188,14 +190,14 @@ button svg {
   width: 80%;
   font-size: 16px;
   color: #ffffff;
-  background-color: #342e2e;
+  background-color: #282c34;
   border-radius: 15px;
   display: flex;
   padding: 5px;
   justify-content: center;
   border: 5px solid whitesmoke;
   cursor: pointer;
-  margin-left: 20px
+  margin-left: 20px;
 }
 
 .answer-section {
@@ -209,13 +211,13 @@ button svg {
   padding: 15px;
   color: whitesmoke;
   font-size: 25px;
-  text-decoration: none
+  text-decoration: none;
 }
 
 #signup {
   color: whitesmoke;
   font-size: 25px;
-  text-decoration: none
+  text-decoration: none;
 }
 
 #logout {
@@ -226,14 +228,14 @@ button svg {
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
 }
 
 #intGame {
   padding: 15px;
   color: whitesmoke;
   font-size: 25px;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .App-header {
@@ -251,34 +253,34 @@ button svg {
   color: #61dafb;
 }
 
-.color-nav{
+.color-nav {
   background: #342e2e;
-  font-family: 'Pacifico';
-  color:whitesmoke;
+  font-family: "Pacifico";
+  color: whitesmoke;
   font-size: 25px;
-  padding-right: 20px
+  padding-right: 20px;
 }
 
 .navi-container {
-  display:flex;
-  padding:9px;
+  display: flex;
+  padding: 9px;
 }
 
-.navi-login{
-  display: flex; 
+.navi-login {
+  display: flex;
   justify-content: flex-end;
 }
 
-.navi-header{
-  display:flex;
+.navi-header {
+  display: flex;
   flex: 3;
-  justify-Content: flex-start;
+  justify-content: flex-start;
 }
 
 .soundwave {
   width: 600px;
   height: 70px;
-  margin: 50px auto 
+  margin: 50px auto;
 }
 .bar {
   display: inline-block;
@@ -291,16 +293,16 @@ button svg {
   animation-delay: 0s;
 }
 .a2 {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .a3 {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 .a4 {
-  animation-delay: .6s;
+  animation-delay: 0.6s;
 }
 .a5 {
-  animation-delay: .8s;
+  animation-delay: 0.8s;
 }
 .a6 {
   animation-delay: 1s;
@@ -354,9 +356,9 @@ button svg {
   animation-delay: 4.2s;
 }
 
- 
 @keyframes wave {
-  0%, 50%{
+  0%,
+  50% {
     transform: scaleY(1);
   }
   25% {
@@ -365,13 +367,12 @@ button svg {
   }
 }
 
-
 .dropbtn {
   background-color: whitesmoke;
   color: #282c34;
   padding: 8px;
   font-size: 18px;
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
   border: none;
   cursor: pointer;
   border-radius: 2px;
@@ -390,7 +391,7 @@ button svg {
   font-family: Pacifico;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -401,7 +402,9 @@ button svg {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -420,7 +423,7 @@ button svg {
   color: #282c34;
   padding: 8px;
   font-size: 18px;
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
   border: none;
   cursor: pointer;
   border-radius: 2px;
@@ -431,7 +434,7 @@ button svg {
   color: #282c34;
   padding: 8px;
   font-size: 18px;
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
   border: none;
   border-radius: 2px;
 }
@@ -452,30 +455,63 @@ button svg {
 .login {
   width: 30%;
   background-color: #342e2e;
-  
 }
 
-#login-text{
+#login-text {
   color: whitesmoke;
-  font-family: 'Pacifico'
+  font-family: "Pacifico";
 }
 
-.profileContainer{
-  display:flex;
-  justify-content: flex-start;
+.profileContainer {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
-.intervalResultContainer{
+.intervalResultContainer {
   margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.interval-result{
-  width:30%;
+.interval-result {
+  // width: 30%;
   border-radius: 5px;
-  color:whitesmoke;
+  color: whitesmoke;
   border: none;
+  font-family: "Pacifico";
   background-color: #282c34;
-  margin-left: 110px;
+  margin-top: 2%;
+  width: 25%;
+  margin-left: 37%;
 }
 
+.chord-game-result {
+  border-radius: 5px;
+  color: whitesmoke;
+  border: none;
+  font-family: "Pacifico";
+  background-color: #282c34;
+  width: 25%;
+  margin-left: 37%;
+}
+
+#login-text {
+  font-size: 17px !important;
+}
+
+.login-page {
+  padding: 10px;
+}
+
+#title {
+  font-family: "Pacifico";
+  color: whitesmoke;
+}
+
+#list {
+  text-align: left;
+  font-family: "Pacifico";
+  color: whitesmoke;
+}
