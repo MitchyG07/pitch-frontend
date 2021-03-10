@@ -29,6 +29,7 @@ const Navi = (props) => {
                         <a href='/interval'>Intervals</a>
                         <a href='/chord'>Chords</a>
                         <a href='/perfect_pitch'>Perfect Pitch</a>
+                        <a href='/profile'>Progress Tracker</a>
                       </div>
                     </div> 
                  

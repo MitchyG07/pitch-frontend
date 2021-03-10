@@ -11,14 +11,8 @@ class ChordResult extends Component {
 
     render() {
         let data = this.props.results.map(game => game.points)
-        let count = data.length
-        let total = 0 
-        data.forEach(num => {total += num})
-        let avg = total / count
-        let max = Math.max(...data)
         return (
         <div className='leaderboard'>
-          <div className='stats'> 
           <ReactEcharts
             option={{
               xAxis: {
@@ -38,22 +32,6 @@ class ChordResult extends Component {
               }
             }}
           />
-          <table classname='styled-table'>
-            <tr>
-              <th>Games Played</th>
-              <td>{count}</td>
-            </tr>
-            <tr>
-              <th>Average Score</th>
-              <td>{(avg).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <th>High Score</th>
-              <td>{max}</td>
-            </tr>
-          
-          </table>
-          </div>
         {
         !this.props.hideButton
         ? <button id="revealAnswer" onClick={() => this.props.start()}>Play Again!</button> 

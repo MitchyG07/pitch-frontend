@@ -26,21 +26,21 @@ const Profile = (props) => {
     
     return (
         <div className='profileContainer'>
-            <h1 id='profileHeader'>Welcome {user.username} </h1> 
 
-            <h3 className='game-result'>Interval Game Results</h3>
-
-            <div className='resultContainer'>
+            <div className='intervalResultContainer'>
+            <div id="interval">
+            <h2 className='interval-result'>Interval Game Progression</h2>
+            </div> 
             <Results results={intervalResults} hideButton={true} />
             </div>
 
-            <h3 className='game-result'>Chord Game Results</h3>
+            <h2 className='game-result'>Chord Game Progression</h2>
             
             <div className='resultContainer'>
             <ChordResult results={chordResults} hideButton={true}/>
             </div>
 
-            <h3 className='game-result'>Perfect Pitch Game Results</h3>
+            <h2 className='game-result'>Perfect Pitch Game Progression</h2>
 
             <div className='resultContainer'>
             <PerfectResult results={perfectResults} hideButton={true}/>
