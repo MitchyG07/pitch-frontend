@@ -62,7 +62,7 @@ class PerfectContainer extends Component {
 
         <div>
             { endGame ? 
-            <PerfectResult results={this.state.games} start={this.handleRestart} />
+            <PerfectResult results={this.state.games} start={this.handleRestart} hideButton={false} />
             : <div></div>
             }
         </div> 

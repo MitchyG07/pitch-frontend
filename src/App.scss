@@ -4,6 +4,7 @@ $color_dark: #1A1A1A;
 $color_light: #FAFAFA;
 $color_background: #2D3235;
 $default_timer: 987ms;
+$breakpoint-alpha: 480px;
 
 .App {
   text-align: center;
@@ -131,7 +132,7 @@ $default_timer: 987ms;
 }
 
 .game-container {
-  background-color: #282c34;
+  background-color: #342e2e;
   width: 450px;
   min-height: 200px;
   height: min-content;
@@ -147,7 +148,7 @@ $default_timer: 987ms;
   width: 100%;
   font-size: 16px;
   color: #ffffff;
-  background-color: #282c34;
+  background-color: #342e2e;
   border-radius: 15px;
   display: flex;
   padding: 5px;
@@ -162,7 +163,7 @@ $default_timer: 987ms;
     width: 100%;
     font-size: 16px;
     color: #ffffff;
-    background-color: #282c34;
+    background-color: #342e2e;
     border-radius: 15px;
     display: flex;
     padding: 5px;
@@ -437,4 +438,24 @@ button svg {
 
 #revealAnswer:hover {
   background-color: #cac7c7;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.login {
+  width: 30%;
+  background-color: #342e2e;
+  
+}
+
+#login-text{
+  color: whitesmoke;
+  font-family: 'Pacifico'
 }

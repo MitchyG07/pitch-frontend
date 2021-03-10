@@ -62,7 +62,7 @@ class ChordContainer extends Component {
    
            <div>
                { endGame ? 
-               <ChordResult results={this.state.games} start={this.handleRestart} />
+               <ChordResult gameResult={this.state.games} results={this.state.games} start={this.handleRestart} hideButton={false}/>
                : <div></div>
                }
            </div>

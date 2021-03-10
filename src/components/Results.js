@@ -22,11 +22,19 @@ class Results extends Component {
               },
               series: [{ 
                 data: data,
-                type: 'line'
-              }]
+                type: 'line',
+                lineStyle: {color: '#5ee70f'}
+              },],
+              tooltip: {
+                trigger:'axis',
+              }
             }}
           />
-        <button id="revealAnswer" onClick={() => this.props.start()}>Play Again!</button> 
+        {
+        !this.props.hideButton
+        ? <button id="revealAnswer" onClick={() => this.props.start()}>Play Again!</button> 
+        : <div></div> 
+        }
         </div> 
         );
       }

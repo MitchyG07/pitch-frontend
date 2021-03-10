@@ -63,7 +63,7 @@ class IntervalContainer extends Component {
 
         <div>
             { endGame ? 
-            <Results results={this.state.games} start={this.handleRestart} />
+            <Results results={this.state.games} start={this.handleRestart} hideButton={false}/>
             : <div></div>
             }
         </div>

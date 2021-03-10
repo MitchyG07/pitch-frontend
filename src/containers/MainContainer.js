@@ -5,6 +5,7 @@ import IntervalContainer from './IntervalContainer'
 import Navi from '../components/Navi'
 import ChordContainer from './ChordContainer'
 import PerfectContainer from './PerfectContainer'
+import Profile from '../components/Profile'
 
 
 const API = "http://localhost:3000";
@@ -13,7 +14,8 @@ class MainContainer extends React.Component {
     
     state = {
         user: {},
-        error: false
+        error: false,
+        chordResult: []
     }
 
     persistUser = (token) => {
@@ -96,26 +98,34 @@ class MainContainer extends React.Component {
         console.log("successful logout")
       };
 
+      setResult = (data) => {
+        this.setState({
+          chordResult: data
+        })
+      }
+
     renderLoginPage = () => <Login handleLoginOrSignup={this.handleLogin} />;
     renderSignUpPage = () => <Login handleLoginOrSignup={this.handleSignup} />;
 
     render() {
-        const {user, error} = this.state
-        console.log(this.state.user)
+
         return (
             <div>
-               <Navi user={user} handleLogout={this.handleLogout}/>
-                {!!error && <h1>{error}</h1>}
+               <Navi user={this.state.user} handleLogout={this.handleLogout}/>
+                {!!this.state.error && <h1>{this.state.error}</h1>}
           
               <Route path="/login" component={this.renderLoginPage} />
               <Route path="/signup" render={this.renderSignUpPage} />
               <Route path="/chord" render={() => {
-                return <ChordContainer /> 
+                return <ChordContainer gameResult={this.setResult}/> 
               }} /> 
               <Route path= "/interval" render={() => {
                   return <IntervalContainer />}} /> 
               <Route path= "/perfect_pitch" render={() => {
                 return <PerfectContainer /> 
+              }}/>
+              <Route path="/profile" render={() => {
+                return <Profile />
               }}/>
             </div>
         )

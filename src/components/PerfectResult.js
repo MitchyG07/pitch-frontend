@@ -4,7 +4,8 @@ import ReactEcharts from 'echarts-for-react';
 class ChordResult extends Component {
 
     state = {
-        games: [] 
+        games: [],
+        hideButton: false,
     }
 
     render() {
@@ -22,11 +23,19 @@ class ChordResult extends Component {
               },
               series: [{ 
                 data: data,
-                type: 'line'
-              }]
+                type: 'line',
+                lineStyle: {color: '#5ee70f'}
+              },],
+              tooltip: {
+                trigger:'axis',
+              }
             }}
           />
-        <button id="revealAnswer" onClick={() => this.props.start()}>Play Again!</button> 
+        {
+        !this.props.hideButton
+        ? <button id="revealAnswer" onClick={() => this.props.start()}>Play Again!</button> 
+        : <div></div> 
+        }
         </div> 
         );
       }
