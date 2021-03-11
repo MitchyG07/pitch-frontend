@@ -228,7 +228,7 @@ button svg {
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
 }
 
 #intGame {
@@ -255,7 +255,7 @@ button svg {
 
 .color-nav {
   background: #342e2e;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   color: whitesmoke;
   font-size: 25px;
   padding-right: 20px;
@@ -372,7 +372,7 @@ button svg {
   color: #282c34;
   padding: 8px;
   font-size: 18px;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   border: none;
   cursor: pointer;
   border-radius: 2px;
@@ -388,7 +388,7 @@ button svg {
   display: none;
   position: absolute;
   font-size: 18px;
-  font-family: Pacifico;
+  font-family: "Maitree", serif;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -423,7 +423,7 @@ button svg {
   color: #282c34;
   padding: 8px;
   font-size: 18px;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   border: none;
   cursor: pointer;
   border-radius: 2px;
@@ -434,22 +434,13 @@ button svg {
   color: #282c34;
   padding: 8px;
   font-size: 18px;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   border: none;
   border-radius: 2px;
 }
 
 #revealAnswer:hover {
   background-color: #cac7c7;
-}
-
-.styled-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .login {
@@ -459,7 +450,7 @@ button svg {
 
 #login-text {
   color: whitesmoke;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
 }
 
 .profileContainer {
@@ -491,27 +482,124 @@ button svg {
   border-radius: 5px;
   color: whitesmoke;
   border: none;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   background-color: #282c34;
   width: 25%;
   margin-left: 37%;
 }
 
 #login-text {
-  font-size: 17px !important;
+  font-size: 20px !important;
 }
 
 .login-page {
-  padding: 10px;
+  padding: 12px;
 }
 
 #title {
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   color: whitesmoke;
 }
 
 #list {
   text-align: left;
-  font-family: "Pacifico";
+  font-family: "Maitree", serif;
   color: whitesmoke;
+}
+
+#select {
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: normal;
+  --bg-color: #282c34;
+  border-radius: 5px;
+}
+
+/* title styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.home-title span {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  line-height: 1.2;
+}
+
+.home-title span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #282c34;
+  border: none;
+  border-radius: 2px;
+  animation: a-ltr-after 2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  transform: translateX(-101%);
+}
+
+.home-title span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  animation: a-ltr-before 2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  transform: translateX(0);
+}
+
+.home-title span:nth-of-type(1)::before,
+.home-title span:nth-of-type(1)::after {
+  animation-delay: 0s;
+}
+
+.home-title span:nth-of-type(2)::before,
+.home-title span:nth-of-type(2)::after {
+  animation-delay: 1s;
+}
+
+@keyframes a-ltr-after {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes a-ltr-before {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  color: whitesmoke;
+  background-color: var(--bg-color);
+  font-family: "Maitree", serif;
+}
+
+.login-input {
+  width: 150px;
+  align-items: center;
+  margin: 4px;
 }

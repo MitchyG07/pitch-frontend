@@ -28,6 +28,7 @@ class Login extends Component {
                 >
                   <label id="login-text">Username</label> <br></br>
                   <input
+                    className="login-input"
                     type="text"
                     name="username"
                     placeholder="username"
@@ -38,6 +39,7 @@ class Login extends Component {
                   <label id="login-text">Password</label>
                   <br></br>
                   <input
+                    className="login-input"
                     type="password"
                     name="password"
                     placeholder="password"
@@ -46,7 +48,7 @@ class Login extends Component {
                   />
                   <br />
                   <br></br>
-                  <input type="submit" value="Login"></input>
+                  <input id="logout" type="submit" value="Sign In"></input>
                 </form>
               </div>
             </div>

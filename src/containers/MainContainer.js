@@ -6,6 +6,7 @@ import Navi from "../components/Navi";
 import ChordContainer from "./ChordContainer";
 import PerfectContainer from "./PerfectContainer";
 import Profile from "../components/Profile";
+import Root from "../components/Root";
 
 const API = "http://localhost:3000";
 
@@ -110,7 +111,6 @@ class MainContainer extends React.Component {
       <div>
         <Navi user={this.state.user} handleLogout={this.handleLogout} />
         {!!this.state.error && <h1>{this.state.error}</h1>}
-
         <Route path="/login" component={this.renderLoginPage} />
         <Route path="/signup" render={this.renderSignUpPage} />
         <Route
@@ -135,6 +135,13 @@ class MainContainer extends React.Component {
           path="/profile"
           render={() => {
             return <Profile />;
+          }}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return <Root />;
           }}
         />
       </div>

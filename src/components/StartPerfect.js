@@ -23,7 +23,7 @@ const StartPerfect = (props) => {
               <br></br>
               <ul id="list">
                 <li>Press play note!</li>
-                <li>Click on note you think was played! (10 rounds)</li>
+                <li>Click on the note you think was played! (10 rounds)</li>
                 <li>
                   See if your guess was correct at the bottom of the page!
                 </li>

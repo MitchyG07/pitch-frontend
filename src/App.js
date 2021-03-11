@@ -12,7 +12,7 @@ class App extends Component {
           loop
           muted
           style={{
-            position: "absolute",
+            position: "fixed",
             width: "100%",
             top: "50%",
             left: "50%",

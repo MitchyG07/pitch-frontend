@@ -10,7 +10,7 @@ const Navi = (props) => {
         <div className="navi-header">
           <Nav>
             <BsMusicNoteList />
-            <Navbar.Brand id="title"> Pitch Please</Navbar.Brand>
+            <Navbar.Brand id="title"> Play it by Ear</Navbar.Brand>
           </Nav>
         </div>
         {!localStorage.id ? (
@@ -25,6 +25,7 @@ const Navi = (props) => {
         ) : (
           <Nav className="mr-auto">
             <div class="dropdown">
+              <div></div>
               <button class="dropbtn">Train Your Ear</button>
               <div class="dropdown-content">
                 <a href="/interval">Intervals</a>
